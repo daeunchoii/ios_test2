@@ -28,7 +28,7 @@ jobs:
 
 
 
-      # 2. 실행 권한 부여 (Permission denied 해결)
+      # 2. 실행 권한 부여
 
       - name: Grant Execute Permissions to Scripts
 
@@ -40,7 +40,7 @@ jobs:
 
 
 
-      # 3. 메인 타깃 및 Framework 무서명 빌드
+      # 3. 메인 타깃 및 Framework 무서명 빌드 (학생 프로젝트 호환 보강)
 
       - name: Build Unsigned App
 
@@ -60,11 +60,13 @@ jobs:
 
             CODE_SIGNING_REQUIRED=NO \
 
-            CODE_SIGN_IDENTITY="" \
+            CODE_SIGN_IDENTITY="-" \
 
             CODE_SIGN_ENTITLEMENTS="" \
 
             CODE_SIGNING_INJECT_BASE_ENTITLEMENTS=NO \
+
+            ENABLE_USER_SCRIPT_SANDBOXING=NO \
 
             DEBUG_INFORMATION_FORMAT=dwarf \
 
